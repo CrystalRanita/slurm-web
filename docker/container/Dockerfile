@@ -128,6 +128,6 @@ EXPOSE 80/tcp
 
 VOLUME ["/etc/slurm-web"]
 
-#Fix problem with clusters.config.json path
+#Fix problem with clusters.config.js path
 RUN cd /usr/share/slurm-web/dashboard && \
     sed -i s@slurm-web-conf@slurm/web-conf@ index.html

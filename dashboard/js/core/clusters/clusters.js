@@ -22,7 +22,7 @@ define([
   'jquery',
   'async',
   'handlebars',
-  'text!/slurm-web-conf/clusters.config.json',
+  'text!/slurm-web-conf/clusters.config.js',
   'text!../../js/core/clusters/clusters.hbs',
   'ajax-utils',
   'error-utils'
