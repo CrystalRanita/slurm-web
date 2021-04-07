@@ -93,9 +93,10 @@ RUN cd /usr/src && \
 
 
 RUN cd /usr/src && \
-    git clone https://github.com/edf-hpc/slurm-web.git && \
+#    git clone https://github.com/edf-hpc/slurm-web.git && \
+    git clone https://github.com/CrystalRanita/slurm-web.git && \
     cd slurm-web && \
-    git checkout debian/2.0.0 && \
+    git checkout debian/2.2.6 && \
     debuild -us -uc && \
     dpkg -i ../slurm-web-*deb
 
@@ -125,3 +126,7 @@ RUN apt-get clean
 EXPOSE 80/tcp
 
 VOLUME ["/etc/slurm-web"]
+
+#Fix problem with clusters.config.json path
+RUN cd /usr/share/slurm-web/dashboard && \
+    sed -i s@slurm-web-conf@slurm/web-conf@ index.html
